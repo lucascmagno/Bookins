@@ -30,8 +30,6 @@
         </menu>
     </header>
     <section class="livros-estoque">
-       
-    <h1>Listagem de Livros</h1>
     
     <% 
     // Cria uma instância do SelectDao

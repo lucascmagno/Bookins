@@ -17,6 +17,10 @@ p{
     margin-left: 30px;
     font-size: 20px;
 }
+#voltar{
+	color: white; 
+	margin-top: 50px; 
+}
 #titulo{
     height: 50px;
     width: 100%;
