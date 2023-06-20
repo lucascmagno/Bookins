@@ -1,39 +1,33 @@
 package Bookins.dao;
 
 import Bookins.model.Livro;
-//Conexao
 import Bookins.util.Conexao;
 
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
 public class SelectDao {
-	private Connection conexao;
-
-    public SelectDao(Connection conexao) {
-        this.conexao = conexao;
-    }
-
-    public Connection getConexao() {
-		return conexao;
-	}
-
-	public List<Livro> listarLivros() throws SQLException {
-        List<Livro> livros = new ArrayList<>();
+    
+    public List<Livro> listarLivros() throws SQLException {
+        Conexao con = null;
         
-        try (Statement stmt = conexao.createStatement();
-             ResultSet rs = stmt.executeQuery("SELECT * FROM livro")) {
+        List<Livro> livros = new ArrayList<>();
+        try {
+            con = new Conexao();
+            ResultSet rs = con.executeQuery("SELECT * FROM livro;");
             while (rs.next()) {
                 Livro livro = new Livro();
-                livro.setId(rs.getInt("id"));
-                livro.setTitulo(rs.getString("titulo"));
-                livro.setDescricao(rs.getString("descricao"));
-                livro.setPreco(rs.getDouble("preco"));
+                livro.setId(rs.getInt("idLivro"));
+                livro.setTitulo(rs.getString("nomeLivro"));
+                livro.setDescricao(rs.getString("descricao_livro"));
+                livro.setPreco(rs.getDouble("preco_livro"));
                 livros.add(livro);
+            }
+        } finally {
+            if (con != null) {
+                con.fecharConexao();
             }
         }
 

@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="java.sql.SQLException" %>
-<%@ page import="java.sql.ResultSet" %>
-<%@ page import="Bookins.dao.SelectDao" %>
-<%@ page import="Bookins.model.Livro" %>
-<%@ page import="Bookins.util.Conexao" %>
+<%@page import="Bookins.dao.SelectDao"%>
+<%@page import="Bookins.model.Livro"%>
+<%@page import="java.util.List"%>
+<%@page import="java.sql.SQLException"%>
 
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,47 +13,54 @@
 </head>
 <body>
     <h1>Listagem de Livros</h1>
-
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>Título</th>
-            <th>Descrição</th>
-            <th>Preço</th>
-        </tr>
-
-        <% 
-        try {
-            // Cria uma nova instância de Conexao
-            Conexao conexao = new Conexao();
-
-            // Cria uma nova instância de SelectDao passando a conexão
-            SelectDao selectDao = new SelectDao(conexao.getConnection());
-
-            // Chama o método executeQuery para obter o ResultSet com os dados dos livros
-            ResultSet rs = selectDao.executeQuery("SELECT * FROM livro");
-
-            // Itera sobre o ResultSet e exibe as informações na tabela
-            while (rs.next()) {
-                int id = rs.getInt("id");
-                String titulo = rs.getString("titulo");
-                String descricao = rs.getString("descricao");
-                double preco = rs.getDouble("preco");
-
-                out.println("<tr>");
-                out.println("<td>" + id + "</td>");
-                out.println("<td>" + titulo + "</td>");
-                out.println("<td>" + descricao + "</td>");
-                out.println("<td>" + preco + "</td>");
-                out.println("</tr>");
-            }
-
-            // Fecha a conexão com o banco de dados
-            conexao.fecharConexao();
-        } catch (SQLException e) {
-            out.println("Erro ao listar os livros: " + e.getMessage());
+    
+    <% 
+    // Cria uma instância do SelectDao
+    SelectDao selectDao = new SelectDao();
+    
+    try {
+        // Chama o método listarLivros para obter a lista de livros
+        List<Livro> livros = selectDao.listarLivros();
+        
+        if (livros != null && !livros.isEmpty()) {
+            // Exibe a tabela com os dados dos livros
+    %>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Título</th>
+                        <th>Descrição</th>
+                        <th>Preço</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% 
+                    // Itera sobre a lista de livros e exibe cada um deles na tabela
+                    for (Livro livro : livros) {
+                    %>
+                        <tr>
+                            <td><%= livro.getId() %></td>
+                            <td><%= livro.getTitulo() %></td>
+                            <td><%= livro.getDescricao() %></td>
+                            <td><%= livro.getPreco() %></td>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table>
+    <% 
+        } else {
+            // Exibe uma mensagem caso não haja livros cadastrados
+    %>
+            <p>Não há livros cadastrados.</p>
+    <% 
         }
-        %>
-    </table>
+    } catch (SQLException e) {
+        // Exibe uma mensagem de erro caso ocorra uma exceção ao obter a lista de livros
+    %>
+        <p>Ocorreu um erro ao obter a lista de livros.</p>
+    <% 
+        }
+    %>
 </body>
 </html>

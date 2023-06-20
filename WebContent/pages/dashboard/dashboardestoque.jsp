@@ -3,13 +3,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>Dashboard Estoque</title>
 <link rel="stylesheet" href="../../css/dashboardestoque.css">
 </head>
 <body>
 	<header>
         <menu>
+        <a class="link" href="dashboardvendas.jsp">Voltar</a>
             <div class="top-header">
                 <div class="user">
                     <div class="img">
@@ -46,8 +47,8 @@
                     <td>5</td>
                     <td>29,90</td>
                     <td>149,50</td>
-                    <td class="edit"><img src="./svg/edit.svg" alt=""></td>
-                    <td class="delete"><img src="./svg/delete.svg" alt=""></td>
+                    <a href="#"><td class="edit"><img src="../../images/edit.svg" alt=""></td></a>
+                    <a href="#"><td class="delete"><img src="../../images/delete.svg" alt=""></td></a>
                 </tr>
             </tbody>
         </table>
