@@ -31,7 +31,7 @@
         Preço <input type="number" name="preco" min="0.00" value="<%= livro.getPreco() %>"><br>
         <input type="submit" value="Atualizar">
     </form>
-    <a href="./lista_livros.jsp">Voltar</a>
+    <a href="../dashboard/dashboardestoque.jsp">Voltar</a>
     <% } else { %>
     <p>O livro não foi encontrado.</p>
     <% } %>
