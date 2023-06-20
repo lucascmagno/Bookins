@@ -1,17 +1,29 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/cad.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
 </head>
 <body>
-	<form action="resposta_cadastro.jsp" method="POST">
-		Titulo <input type="text" name="titulo"><br>
-		Descriçao <textarea rows="5" cols="33" name="descricao"></textarea><br>
-		Preço <input type="number" name="preco" min="0.00"><br>
-		<input type="submit" value="Adicionar">
-	</form>
+    <div class="topo">
+        <h1>CADASTRE UM LIVRO</h1>
+    </div>
+    <form action="resposta_cadastro.jsp" method="POST">
+        <div class="caixa">
+            <p>TÃ­tulo </p> <input type="text" name="titulo" id="titulo"><br>
+            <p> DescriÃ§ao </p> <textarea rows="5" cols="33" name="descricao" id="descricao"></textarea><br>
+            <p> PreÃ§o </p> <input type="number" name="preco" min="0.00" id="preco"><br>
+        </div>
+        <div class="botao">
+        <input type="submit" value="Adicionar" id="botao">
+        </div>
+    </form>
 </body>
 </html>
