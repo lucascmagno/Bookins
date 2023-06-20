@@ -64,4 +64,5 @@ public class CadastroDao {
 			return false;
 		}
 	}
+	
 }

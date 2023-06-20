@@ -33,4 +33,28 @@ public class SelectDao {
 
         return livros;
     }
+    
+    public Livro getLivroById(int id) throws SQLException {
+        Conexao con = null;
+        Livro livro = null;
+
+        try {
+            con = new Conexao();
+            ResultSet rs = con.executeQuery("SELECT * FROM livro WHERE idLivro=" + id);
+            
+            if (rs.next()) {
+                livro = new Livro();
+                livro.setId(rs.getInt("idLivro"));
+                livro.setTitulo(rs.getString("nomeLivro"));
+                livro.setDescricao(rs.getString("descricao_livro"));
+                livro.setPreco(rs.getDouble("preco_livro"));
+            }
+        } finally {
+            if (con != null) {
+                con.fecharConexao();
+            }
+        }
+
+        return livro;
+    }
 }
