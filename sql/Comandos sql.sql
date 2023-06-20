@@ -40,7 +40,8 @@ SELECT livro.idLivro as id,
  estoque.total
 from livro, estoque
 ;
-
+#----------------UPDATE
+UPDATE livro SET nomeLivro='Percy Jackson' WHERE idLivro = 1;
 
 
  

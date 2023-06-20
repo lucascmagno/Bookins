@@ -40,4 +40,17 @@ public class CadastroDao {
 			return false;
 		}
 	}
+	
+	public boolean updateLivro(Livro l) {
+		Conexao con = null;
+		
+		try {
+			con = new Conexao();
+			con.executeUpdate("UPDATE livro SET nomeLivro='"+l.getTitulo()+"', descricao_livro='"+l.getDescricao()+"', preco_livro='"+l.getPreco()+"' "
+	                + "WHERE idLivro="+l.getId()+";");
+			return true;
+		}catch(SQLException e){
+			return false;
+		}
+	}
 }
