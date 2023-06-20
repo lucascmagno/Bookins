@@ -4,7 +4,7 @@
 <%@page import="java.sql.SQLException"%>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,11 +24,11 @@
     <h1>Listagem de Livros</h1>
     
     <% 
-    // Cria uma inst√¢ncia do SelectDao
+    // Cria uma inst‚ncia do SelectDao
     SelectDao selectDao = new SelectDao();
     
     try {
-        // Chama o m√©todo listarLivros para obter a lista de livros
+        // Chama o mÈtodo listarLivros para obter a lista de livros
         List<Livro> livros = selectDao.listarLivros();
         
         if (livros != null && !livros.isEmpty()) {
@@ -38,9 +38,9 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>T√≠tulo</th>
-                        <th>Descri√ß√£o</th>
-                        <th>Pre√ßo</th>
+                        <th>TÌtulo</th>
+                        <th>DescriÁ„o</th>
+                        <th>PreÁo</th>
                         <th>Edit</th>
                         <th>Delete</th>
                     </tr>
@@ -61,15 +61,16 @@
                     <% } %>
                 </tbody>
             </table>
+            <a href="../dashboard/dashboardestoque.jsp">Voltar</a>
     <% 
         } else {
-            // Exibe uma mensagem caso n√£o haja livros cadastrados
+            // Exibe uma mensagem caso n„o haja livros cadastrados
     %>
-            <p>N√£o h√° livros cadastrados.</p>
+            <p>N„o h· livros cadastrados.</p>
     <% 
         }
     } catch (SQLException e) {
-        // Exibe uma mensagem de erro caso ocorra uma exce√ß√£o ao obter a lista de livros
+        // Exibe uma mensagem de erro caso ocorra uma exceÁ„o ao obter a lista de livros
     %>
         <p>Ocorreu um erro ao obter a lista de livros.</p>
     <% 
