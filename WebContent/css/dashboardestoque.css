@@ -48,8 +48,11 @@ menu{
     font-weight: normal;
 }
 .link{
+	display: flex;
+	justify-content: center;
 	text-decoration: none;
-	color: #FFFFFF;
+	color: var(--azul-escuro);
+	margin: auto;
 }
 .livro-estoque{
     background-color: var(--azul-escuro);
@@ -87,9 +90,6 @@ th{
 section.livros-estoque{
     margin: auto;
     margin-top: 20px;
-}
-.listagem > h1{
-	color: white;
 }
 @media screen and (max-width: 700px){
     section{

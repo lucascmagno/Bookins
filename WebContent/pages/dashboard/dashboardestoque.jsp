@@ -13,7 +13,6 @@
 <body>
 	<header>
         <menu>
-        <a class="link" href="dashboardvendas.jsp">Voltar</a>
             <div class="top-header">
                 <div class="user">
                     <div class="img">
@@ -83,6 +82,7 @@
     <% 
         }
     %>
+    <a class="link" href="dashboardvendas.jsp">Voltar</a>
     </section>
 
 </body>
