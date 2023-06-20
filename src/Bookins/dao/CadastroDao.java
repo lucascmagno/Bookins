@@ -53,4 +53,15 @@ public class CadastroDao {
 			return false;
 		}
 	}
+	public boolean deleteLivro(Livro l) {
+		Conexao con = null;
+		
+		try {
+			con = new Conexao();
+			con.executeUpdate("DELETE FROM livro WHERE idLivro="+l.getId());
+			return true;
+		}catch(SQLException e){
+			return false;
+		}
+	}
 }

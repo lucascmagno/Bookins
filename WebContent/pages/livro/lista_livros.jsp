@@ -56,7 +56,7 @@
                             <td><%= livro.getDescricao() %></td>
                             <td><%= livro.getPreco() %></td>
                            	<td><a href="./update_livro.jsp?id=<%= livro.getId() %>"><img alt="edit" src="../../images/edit.svg"></a></td>
-                            <td><a href="./delete_livro.jsp?<%= livro.getId() %>"><img alt="delete" src="../../images/delete.svg"></a></td>
+                            <td><a href="./delete_livro.jsp?id=<%= livro.getId() %>"><img alt="delete" src="../../images/delete.svg"></a></td>
                         </tr>
                     <% } %>
                 </tbody>
