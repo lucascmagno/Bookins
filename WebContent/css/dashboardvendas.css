@@ -59,6 +59,7 @@ menu{
 .lista{
     display: flex;
     width: 20%;
+    gap: 10px;
 }
 
 .pesquisa{

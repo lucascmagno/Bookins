@@ -32,6 +32,8 @@
                         <th>Título</th>
                         <th>Descrição</th>
                         <th>Preço</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
                     </tr>
                 </thead>
                 <tbody>

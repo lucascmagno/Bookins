@@ -47,9 +47,16 @@ menu{
 .h3-estoque{
     font-weight: normal;
 }
+.link{
+	text-decoration: none;
+	color: #FFFFFF;
+}
 .livro-estoque{
     background-color: var(--azul-escuro);
     padding: 10px 30px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
 }
 table{
     border-collapse: collapse;
