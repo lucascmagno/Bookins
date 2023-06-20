@@ -27,7 +27,7 @@ if(ok){
 %>
 <script type="text/javascript">
 	alert("Livro cadastrado com sucesso!");
-	window.location.href="./lista_livros.jsp";
+	window.location.href="../dashboard/dashboardestoque.jsp";
 </script>
 <%}else{ %>
 <script type="text/javascript">

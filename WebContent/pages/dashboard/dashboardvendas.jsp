@@ -33,7 +33,7 @@
                     <div class="link1">
                         <li><a href="#">Estantes</a></li>
                         <li><a href="#">Sebos e Livros</a></li>
-                        <li><a href="#">Livros Recomendados</a></li>
+                        <li><a href="#livros">Livros Recomendados</a></li>
                         <li><a href="#">Mais vendidos</a></li>
                     </div>
                     <div class="link2">
@@ -48,7 +48,7 @@
             <h1 class="h1-destaque">CONFIRA NOSSAS OFERTAS!</h1>
             <h2 class="h2-destaque">Livros com até 80% de desconto.</h2>
         </div>
-        <div class="livros">
+        <div class="livros" id="livros">
             <div class="container">
                 <div class="content">
                     <img src="../../images/image 1.svg" alt="">

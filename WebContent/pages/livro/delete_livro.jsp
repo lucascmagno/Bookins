@@ -17,11 +17,11 @@ if(ok){
 %>
 <script type="text/javascript">
 	alert("Livro apagado com sucesso!");
-	window.location.href="./lista_livros.jsp";
+	window.location.href="../dashboard/dashboardestoque.jsp";
 </script>
 <%}else{ %>
 <script type="text/javascript">
 	alert("Erro ao apagar o livro");
-	window.location.href="./lista_livros.jsp";
+	window.location.href="../dashboard/dashboardestoque.jsp";
 </script>
 <%} %>
