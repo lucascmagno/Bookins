@@ -12,32 +12,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SelectDao {
-	 private Connection conexao; // A conexão com o banco de dados
+	private Connection conexao;
 
-	    // Construtor que recebe a conexão com o banco de dados
-	    public SelectDao(Connection conexao) {
-	        this.conexao = conexao;
-	    }
-	    
-    public List<Livro> listarLivros() throws SQLException {
+    public SelectDao(Connection conexao) {
+        this.conexao = conexao;
+    }
+
+    public Connection getConexao() {
+		return conexao;
+	}
+
+	public List<Livro> listarLivros() throws SQLException {
         List<Livro> livros = new ArrayList<>();
         
-        //Conexao con = null;
-        // Cria a consulta SQL
-        String sql = "SELECT * FROM livro";
-
         try (Statement stmt = conexao.createStatement();
-             ResultSet rs = stmt.executeQuery(sql)) {
-        	//con = new Conexao();
-            // Processa o resultado
+             ResultSet rs = stmt.executeQuery("SELECT * FROM livro")) {
             while (rs.next()) {
-                // Crie uma instância de Livro e preencha os dados
                 Livro livro = new Livro();
                 livro.setId(rs.getInt("id"));
                 livro.setTitulo(rs.getString("titulo"));
                 livro.setDescricao(rs.getString("descricao"));
                 livro.setPreco(rs.getDouble("preco"));
-                // Adicione o livro à lista
                 livros.add(livro);
             }
         }

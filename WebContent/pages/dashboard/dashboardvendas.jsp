@@ -21,7 +21,7 @@
                 </div>
                 <hr style="height: 45px; margin: 10px 15px;">
                 <div class="lista">
-                    <p>Minha Lista</p>
+                    <p><a class="link" href="./dashboardestoque.jsp">Minha Lista</a></p>
                 </div>
             </div>
             <div class="pesquisa">
@@ -50,7 +50,7 @@
         <div class="livros">
             <div class="container">
                 <div class="content">
-                    <img src="./svg/image 1.svg" alt="">
+                    <img src="../../images/image 1.svg" alt="">
                     <h3 class="titulo-card">O Ladrão de Raios</h3>
                     <div class="inf-card">
                         <div class="desconto-card">
@@ -64,7 +64,7 @@
                 </div>
 
                 <div class="content">
-                    <img src="./svg/Rectangle 13.svg" alt="">
+                    <img src="../../images/Rectangle 13.svg" alt="">
                     <h3 class="titulo-card">O Mar de Monstros</h3>
                     <div class="inf-card">
                         <div class="desconto-card">
@@ -76,7 +76,7 @@
                         </div>
                     </div>
                 </div><div class="content">
-                    <img src="./svg/Rectangle 14.svg" alt="">
+                    <img src="../../images/Rectangle 14.svg" alt="">
                     <h3 class="titulo-card">A Maldição do Titã</h3>
                     <div class="inf-card">
                         <div class="desconto-card">
@@ -90,7 +90,7 @@
                 </div>
 
                 <div class="content">
-                    <img src="./svg/Rectangle 15.svg" alt="">
+                    <img src="../../images/Rectangle 15.svg" alt="">
                     <h3 class="titulo-card">A batalha do Labirinto</h3>
                     <div class="inf-card">
                         <div class="desconto-card">
@@ -104,7 +104,7 @@
                 </div>
 
                 <div class="content">
-                    <img src="./svg/Rectangle 16.svg" alt="">
+                    <img src="../../images/Rectangle 16.svg" alt="">
                     <h3 class="titulo-card">O Último Olimpiano</h3>
                     <div class="inf-card">
                         <div class="desconto-card">
@@ -118,7 +118,7 @@
                 </div>
 
                 <div class="content">
-                    <img src="./svg/image 6.svg" alt="">
+                    <img src="../../images/image 6.svg" alt="">
                     <h3 class="titulo-card">A espada do verão</h3>
                     <div class="inf-card">
                         <div class="desconto-card">
@@ -132,7 +132,7 @@
                 </div>
 
                 <div class="content">
-                    <img src="./svg/image 10.svg" alt="">
+                    <img src="../../images/image 10.svg" alt="">
                     <h3 class="titulo-card">O Martelo de Thor</h3>
                     <div class="inf-card">
                         <div class="desconto-card">
@@ -146,7 +146,7 @@
                 </div>
 
                 <div class="content">
-                    <img src="./svg/image 11.svg" alt="">
+                    <img src="../../images/image 11.svg" alt="">
                     <h3 class="titulo-card">O Navio dos Mortos</h3>
                     <div class="inf-card">
                         <div class="desconto-card">
@@ -160,7 +160,7 @@
                 </div>
 
                 <div class="content">
-                    <img src="./svg/Rectangle 19.svg" alt="">
+                    <img src="../../images/Rectangle 19.svg" alt="">
                     <h3 class="titulo-card">Flores para Algernon</h3>
                     <div class="inf-card">
                         <div class="desconto-card">
@@ -174,7 +174,7 @@
                 </div>
 
                 <div class="content">
-                    <img src="./svg/Rectangle 20.svg" alt="">
+                    <img src="../../images/Rectangle 20.svg" alt="">
                     <h3 class="titulo-card">O Jardim Secreto</h3>
                     <div class="inf-card">
                         <div class="desconto-card">
