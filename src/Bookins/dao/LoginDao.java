@@ -12,7 +12,6 @@ public class LoginDao {
 		try {
 			con = new Conexao();
 			ResultSet rs = con.executeQuery("SELECT * FROM usuario WHERE usuario = '"+usuario+"' AND senha='"+senha+"';");
-			con.fecharConexao();
 			System.out.println("Sucesso no Login");
 			if(rs.next()) {
 				return new LoginCadastro(

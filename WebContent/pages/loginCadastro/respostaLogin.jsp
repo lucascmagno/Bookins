@@ -9,10 +9,9 @@
 String usuario = request.getParameter("usuario");
 String senha = request.getParameter("senha");
 
-LoginCadastro login = new LoginCadastro(usuario, senha);
-
 LoginDao loginDao = new LoginDao();
-loginDao.login(usuario, senha);
+LoginCadastro login = loginDao.login(usuario, senha);
+
 
 %>
 
@@ -27,21 +26,12 @@ loginDao.login(usuario, senha);
     <%-- Cria uma instância do LoginDao --%>
     <%
        if (login != null) {
-           // Exibe os detalhes do login bem-sucedido
-    %>
-           <p>Login realizado com sucesso!</p>
-           <p>Usuário: <%= login.getUsuario() %></p>
-           <script type="text/javascript">
-           window.location.href="../dashboard/dashboardvendas.jsp";
-           </script>
+           response.sendRedirect("../dashboard/dashboardvendas.jsp");
            
-    <% } else {
+     } else {
            // Exibe uma mensagem de login inválido
-    %>
-           <script type="text/javascript">
-           	alert("Login inválido. Verifique suas credenciais.")
-           	window.location.href="./login.html";
-           </script>
-    <% } %>
+    
+           response.sendRedirect("./login.html");
+    } %>
 </body>
 </html>
