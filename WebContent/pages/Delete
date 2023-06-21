@@ -1,7 +1,0 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%@page import="Bookins.dao.EstoqueDao"%>
-<%
-EstoqueDao sDao = new EstoqueDao(); 
-sDao.DeleteEstoque(request.getParameter("idEstoque"));
-%>
