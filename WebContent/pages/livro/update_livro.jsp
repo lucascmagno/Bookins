@@ -31,7 +31,7 @@
         
         if (livro != null) {
     %>
-    <form action="resposta_cadastro.jsp" method="POST">
+    <form action="respostaUpdate.jsp" method="POST">
         <div class="caixa">
         <input name="id" type="hidden" value="<%= livro.getId() %>">
             <p>Título </p> <input type="text" name="titulo" id="titulo" value="<%= livro.getTitulo() %>"><br>

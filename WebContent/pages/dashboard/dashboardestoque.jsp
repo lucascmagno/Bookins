@@ -23,8 +23,7 @@
                 </div>
             </div>
             <div class="livro-estoque">
-                <h3 class="h3-estoque"><a href="../livro/lista_livros.jsp" class="link">Livros em Estoque</h3>
-                <h3 class="h3-estoque"><a class="link" href="../livro/cadastro_livro.jsp">Adicionar Livros</a></h3>
+                <h3 class="h3-estoque"><a style="color: white;" class="link" href="../livro/cadastro_livro.jsp">Adicionar Livros</a></h3>
             </div>
         </menu>
     </header>

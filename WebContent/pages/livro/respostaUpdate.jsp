@@ -26,12 +26,12 @@ ok = livroDao.updateLivro(livro);
 if(ok){
 %>
 <script type="text/javascript">
-	alert("Livro cadastrado com sucesso!");
+	alert("Livro atualizado com sucesso!");
 	window.location.href="../dashboard/dashboardestoque.jsp";
 </script>
 <%}else{ %>
 <script type="text/javascript">
-	alert("Erro ao cadastrar o livro");
+	alert("Erro ao atualizar o livro");
 	window.location.href="./lista_livros.jsp";
 </script>
 <%} %>
