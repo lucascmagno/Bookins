@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS `wevcake`.`usuario` (
   `telefone` VARCHAR(45) NULL,
   `senha` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idusuario`),
-  UNIQUE INDEX `nome_UNIQUE` (`nome` ASC) VISIBLE)
+  UNIQUE INDEX `nome_UNIQUE` (`nome` ASC))
 ENGINE = InnoDB;
 
 
@@ -51,8 +51,8 @@ CREATE TABLE IF NOT EXISTS `wevcake`.`venda` (
   `idusuario` INT NOT NULL,
   `idbolo` INT NOT NULL,
   `data_venda` DATE NULL,
-  INDEX `fk_usuario_has_bolo_bolo1_idx` (`idbolo` ASC) VISIBLE,
-  INDEX `fk_usuario_has_bolo_usuario_idx` (`idusuario` ASC) VISIBLE,
+  INDEX `fk_usuario_has_bolo_bolo1_idx` (`idbolo` ASC),
+  INDEX `fk_usuario_has_bolo_usuario_idx` (`idusuario` ASC),
   PRIMARY KEY (`idVenda`),
   CONSTRAINT `fk_usuario_has_bolo_usuario`
     FOREIGN KEY (`idusuario`)
