@@ -34,7 +34,7 @@
     <form action="respostaUpdate.jsp" method="POST">
         <div class="caixa">
         <input name="id" type="hidden" value="<%= livro.getId() %>">
-            <p>Título </p> <input type="text" name="titulo" id="titulo" value="<%= livro.getTitulo() %>"><br>
+            <p>Título </p> <input required type="text" name="titulo" id="titulo" value="<%= livro.getTitulo() %>"><br>
             <p> Descrição </p> <textarea rows="5" cols="33" name="descricao" id="descricao"><%= livro.getDescricao() %></textarea><br>
             <p> Preço </p> <input type="number" name="preco" min="0.00" id="preco" value="<%= livro.getPreco() %>"><br>
         </div>
