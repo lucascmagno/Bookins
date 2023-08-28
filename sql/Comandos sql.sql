@@ -1,3 +1,4 @@
+use bookins;
 select * from livro;
 select * from categoria;
 select * from categorialivro;
@@ -43,5 +44,16 @@ from livro, estoque
 #----------------UPDATE
 UPDATE livro SET nomeLivro='Percy Jackson' WHERE idLivro = 1;
 
+SELECT * FROM venda;
+#junta todas as tabelas referente a venda
 
- 
+Select v.idVenda, l.nomeLivro, u.usuario from venda as v
+inner join livro as l
+on v.idLivro = l.idLivro
+inner join usuario as u
+on v.idUsuario = u.idUsuario;
+
+
+
+
+
