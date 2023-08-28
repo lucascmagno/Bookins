@@ -45,13 +45,22 @@ from livro, estoque
 UPDATE livro SET nomeLivro='Percy Jackson' WHERE idLivro = 1;
 
 SELECT * FROM venda;
-#junta todas as tabelas referente a venda
 
-Select v.idVenda, l.nomeLivro, u.usuario from venda as v
+INSERT INTO venda (idLivro, idUsuario, Estoque_idEstoque) VALUES (1, 3, 1);
+
+#junta todas as tabelas referente a venda
+Select * from venda as v
 inner join livro as l
 on v.idLivro = l.idLivro
 inner join usuario as u
 on v.idUsuario = u.idUsuario;
+
+Select v.idVenda, u.usuario, l.nomeLivro, l.descricao_livro as descricao, l.preco_livro as preco from venda as v
+inner join livro as l
+on v.idLivro = l.idLivro
+inner join usuario as u
+on v.idUsuario = u.idUsuario
+ORDER BY v.idVenda;
 
 
 
