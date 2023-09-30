@@ -17,13 +17,30 @@
                 <div class="user">
                     <div class="img">
                         Image
-                        <p>Nome Sobrenome</p>
+                        <p>
+                        		<%
+			                    HttpSession sessao = request.getSession(false); // Use false para não criar uma nova sessão, caso não exista
+			                    if (sessao != null) {
+			                        String nomeUsuario = (String) sessao.getAttribute("nomeUsuario");
+			                        if (nomeUsuario != null) {
+			                            // Faça o que for necessário com o valor recuperado da sessão
+			                            out.println(nomeUsuario);
+			                        } else {
+			                            // O atributo "nomeUsuario" não está na sessão
+			                        }
+			                    } else {
+			                        // Não há sessão existente
+			                    }
+			
+								%>
+                        </p>
                     </div>
                     <h2 class="h2-vendedor">Área do vendedor</h2>
                 </div>
             </div>
             <div class="livro-estoque">
                 <h3 class="h3-estoque"><a style="color: white;" class="link" href="../livro/cadastro_livro.jsp">Adicionar Livros</a></h3>
+                <h3 class="h3-estoque"><a style="color: white;" class="link" href="../vendas/vendas.jsp">Vendas Realizadas</a></h3>
             </div>
         </menu>
     </header>

@@ -9,6 +9,16 @@
 String usuario = request.getParameter("usuario");
 String senha = request.getParameter("senha");
 
+//Obtém a sessão atual ou cria uma nova se ainda não existir
+HttpSession sessao = request.getSession(true);
+
+//Define ou recupera valores da sessão
+sessao.setAttribute("nomeUsuario", usuario);
+String nomeUsuario = (String) sessao.getAttribute("nomeUsuario");
+
+//Faça o que for necessário com a sessão e os dados armazenados nela
+
+
 LoginDao loginDao = new LoginDao();
 LoginCadastro login = loginDao.login(usuario, senha);
 

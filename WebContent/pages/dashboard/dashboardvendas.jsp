@@ -16,7 +16,23 @@
                 </div>
                 <div class="user">
                     <div class="img"></div>
-                    <p>Olá, <br> Nome Sobrenome</p>
+                    <p>Olá, <br> 
+                   <%
+                    HttpSession sessao = request.getSession(false); // Use false para não criar uma nova sessão, caso não exista
+                    if (sessao != null) {
+                        String nomeUsuario = (String) sessao.getAttribute("nomeUsuario");
+                        if (nomeUsuario != null) {
+                            // Faça o que for necessário com o valor recuperado da sessão
+                            out.println(nomeUsuario);
+                        } else {
+                            // O atributo "nomeUsuario" não está na sessão
+                        }
+                    } else {
+                        // Não há sessão existente
+                    }
+
+					%>
+                    </p>
                     <input class="input-pesquisa input-pesquisa2" type="search" name="pesquisa" id="ipesquisa">
                 </div>
                 <hr style="height: 45px; margin: 10px 15px;">

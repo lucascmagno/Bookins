@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS `bookins`.`Livro` (
   `descricao_livro` VARCHAR(250) NOT NULL,
   `preco_livro` DOUBLE NOT NULL,
   PRIMARY KEY (`idLivro`),
-  UNIQUE INDEX `nomeLivro_UNIQUE` (`nomeLivro` ASC) VISIBLE)
+  UNIQUE INDEX `nomeLivro_UNIQUE` (`nomeLivro` ASC))
 ENGINE = InnoDB;
 
 
@@ -47,8 +47,8 @@ CREATE TABLE IF NOT EXISTS `bookins`.`CategoriaLivro` (
   `Livro_idLivro` INT NOT NULL,
   `Categoria_idCategoria` INT NOT NULL,
   PRIMARY KEY (`Livro_idLivro`, `Categoria_idCategoria`),
-  INDEX `fk_Livro_has_Categoria_Categoria1_idx` (`Categoria_idCategoria` ASC) VISIBLE,
-  INDEX `fk_Livro_has_Categoria_Livro_idx` (`Livro_idLivro` ASC) VISIBLE,
+  INDEX `fk_Livro_has_Categoria_Categoria1_idx` (`Categoria_idCategoria` ASC),
+  INDEX `fk_Livro_has_Categoria_Livro_idx` (`Livro_idLivro` ASC),
   CONSTRAINT `fk_Livro_has_Categoria_Livro`
     FOREIGN KEY (`Livro_idLivro`)
     REFERENCES `bookins`.`Livro` (`idLivro`)
@@ -83,7 +83,7 @@ CREATE TABLE IF NOT EXISTS `bookins`.`Estoque` (
   `quantidade` INT NULL,
   `total` DOUBLE NULL,
   PRIMARY KEY (`idEstoque`),
-  INDEX `fk_Estoque_Livro1_idx` (`idLivro` ASC) VISIBLE,
+  INDEX `fk_Estoque_Livro1_idx` (`idLivro` ASC),
   CONSTRAINT `fk_Estoque_Livro1`
     FOREIGN KEY (`idLivro`)
     REFERENCES `bookins`.`Livro` (`idLivro`)
@@ -100,10 +100,10 @@ CREATE TABLE IF NOT EXISTS `bookins`.`Venda` (
   `idLivro` INT NOT NULL,
   `idUsuario` INT NOT NULL,
   `Estoque_idEstoque` INT NOT NULL,
-  INDEX `fk_Estoque_has_CadastroCliente_Estoque1_idx` (`Estoque_idEstoque` ASC) VISIBLE,
+  INDEX `fk_Estoque_has_CadastroCliente_Estoque1_idx` (`Estoque_idEstoque` ASC),
   PRIMARY KEY (`idVenda`),
-  INDEX `fk_Venda_Livro1_idx` (`idLivro` ASC) VISIBLE,
-  INDEX `fk_Venda_usuario1_idx` (`idUsuario` ASC) VISIBLE,
+  INDEX `fk_Venda_Livro1_idx` (`idLivro` ASC),
+  INDEX `fk_Venda_usuario1_idx` (`idUsuario` ASC),
   CONSTRAINT `fk_Estoque_has_CadastroCliente_Estoque1`
     FOREIGN KEY (`Estoque_idEstoque`)
     REFERENCES `bookins`.`Estoque` (`idEstoque`)
