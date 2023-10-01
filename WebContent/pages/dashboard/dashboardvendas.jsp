@@ -10,6 +10,11 @@
 <meta charset="ISO-8859-1">
 <title>Venda de Livros</title>
     <link rel="stylesheet" href="../../css/dashboardvendas.css">
+    <style>
+    a{
+      text-decoration: none;
+    }
+    </style>
 </head>
 <body>
 	<header>
@@ -85,7 +90,7 @@
             <% 
             // Itera sobre a lista de livros e exibe cada um deles na tabela
             for (Livro livro : livros) {
-            %>
+            %>	<a href="../vendas/livroComprar.jsp?<%=livro.getId()%>">
                 <div class="content">
                     <img src="../../images/imageDefault.svg" alt="">
                     <h3 class="titulo-card"><%=livro.getTitulo() %></h3>
@@ -99,6 +104,7 @@
                         </div>
                     </div>
                 </div>
+                </a>
             <% } %>
     <% 
         } else {
