@@ -162,6 +162,10 @@ section{
     display: flex;
     flex-direction: column;
     gap: 3px;
+    border: 1px solid #ddd;
+}
+.content:hover{
+	cursor:pointer;
 }
 .inf-card{
     display: flex;

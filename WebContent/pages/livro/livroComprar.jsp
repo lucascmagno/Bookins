@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/livro.css">
+    <link rel="stylesheet" href="../../css/livroComprar.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Livro</title>
 </head>
@@ -18,7 +18,7 @@
                     <thead>
                         <tr>
                             <th>Livros <i class='bx bx-chevron-right'></i></th>
-                            <th>Literatura e FicÃ§Ã£o <i class='bx bx-chevron-right'></i></th>
+                            <th>Literatura e Ficção <i class='bx bx-chevron-right'></i></th>
                             <th>Literatura Mundial</th>
                         </tr>
                     </thead>
@@ -29,8 +29,8 @@
                                     <img src="imagens/pjo.jpg" alt="">
                                     <div class="info">
                                         <div class="info2">
-                                            <div class="nome">A MaldiÃ§Ã£o do TitÃ£ - Percy Jackson e os Olimpianos 3</div>
-                                            <div class="avaliacao">4,9<span><i class='bx bxs-star' style='color:#e4fd30'></i><i class='bx bxs-star' style='color:#e4fd30'></i><i class='bx bxs-star' style='color:#e4fd30'></i><i class='bx bxs-star' style='color:#e4fd30'></i><i class='bx bxs-star' style='color:#e4fd30'></i><i class='bx bx-chevron-down' undefined ></i></span><span class="azul">3.435 avaliaÃ§Ãµes de clientes</span></div>
+                                            <div class="nome">A Maldição do Titã - Percy Jackson e os Olimpianos 3</div>
+                                            <div class="avaliacao">4,9<span><i class='bx bxs-star' style='color:#e4fd30'></i><i class='bx bxs-star' style='color:#e4fd30'></i><i class='bx bxs-star' style='color:#e4fd30'></i><i class='bx bxs-star' style='color:#e4fd30'></i><i class='bx bxs-star' style='color:#e4fd30'></i><i class='bx bx-chevron-down' undefined ></i></span><span class="azul">3.435 avaliações de clientes</span></div>
                                             <div class="autor">por<span class="azul">Rick Riordan</span>(Autor),<span class="azul"> Raquel Zampil</span>(Tradutor)</div>
                                             <div class="sequencia"> <span class="azul">Livro 3 de 5: Percy Jackson e os Olimpianos</span></div>
                                             <div class="resumo"></div>

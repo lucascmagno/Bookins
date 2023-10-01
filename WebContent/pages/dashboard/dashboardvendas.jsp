@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@page import="Bookins.dao.SelectDao"%>
+<%@page import="Bookins.model.Livro"%>
+<%@page import="java.util.List"%>
+<%@page import="java.sql.SQLException"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -64,147 +68,55 @@
             <h1 class="h1-destaque">CONFIRA NOSSAS OFERTAS!</h1>
             <h2 class="h2-destaque">Livros com até 80% de desconto.</h2>
         </div>
+        
         <div class="livros" id="livros">
-            <div class="container">
+               <div class="container">
+        <% 
+    // Cria uma instância do SelectDao
+    SelectDao selectDao = new SelectDao();
+    
+    try {
+        // Chama o método listarLivros para obter a lista de livros
+        List<Livro> livros = selectDao.listarLivros();
+        
+        if (livros != null && !livros.isEmpty()) {
+            // Exibe a tabela com os dados dos livros
+    %>
+            <% 
+            // Itera sobre a lista de livros e exibe cada um deles na tabela
+            for (Livro livro : livros) {
+            %>
                 <div class="content">
-                    <img src="../../images/image 1.svg" alt="">
-                    <h3 class="titulo-card">O Ladrão de Raios</h3>
+                    <img src="../../images/imageDefault.svg" alt="">
+                    <h3 class="titulo-card"><%=livro.getTitulo() %></h3>
                     <div class="inf-card">
                         <div class="desconto-card">
                             Até 70% off
                         </div>
                         <div class="preco-card">
                             <span style="color: #0E649A; font-weight: bold;">Oferta</span>
-                            <span style="font-weight: bold;">R$ 29,90</span>
+                            <span style="font-weight: bold;">R$ <%=livro.getPreco() %></span>
                         </div>
                     </div>
                 </div>
-
-                <div class="content">
-                    <img src="../../images/Rectangle 13.svg" alt="">
-                    <h3 class="titulo-card">O Mar de Monstros</h3>
-                    <div class="inf-card">
-                        <div class="desconto-card">
-                            Até 70% off
-                        </div>
-                        <div class="preco-card">
-                            <span style="color: #0E649A; font-weight: bold;">Oferta</span>
-                            <span style="font-weight: bold;">R$ 29,90</span>
-                        </div>
-                    </div>
-                </div><div class="content">
-                    <img src="../../images/Rectangle 14.svg" alt="">
-                    <h3 class="titulo-card">A Maldição do Titã</h3>
-                    <div class="inf-card">
-                        <div class="desconto-card">
-                            Até 70% off
-                        </div>
-                        <div class="preco-card">
-                            <span style="color: #0E649A; font-weight: bold;">Oferta</span>
-                            <span style="font-weight: bold;">R$ 29,90</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="content">
-                    <img src="../../images/Rectangle 15.svg" alt="">
-                    <h3 class="titulo-card">A batalha do Labirinto</h3>
-                    <div class="inf-card">
-                        <div class="desconto-card">
-                            Até 70% off
-                        </div>
-                        <div class="preco-card">
-                            <span style="color: #0E649A; font-weight: bold;">Oferta</span>
-                            <span style="font-weight: bold;">R$ 29,90</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="content">
-                    <img src="../../images/Rectangle 16.svg" alt="">
-                    <h3 class="titulo-card">O Último Olimpiano</h3>
-                    <div class="inf-card">
-                        <div class="desconto-card">
-                            Até 70% off
-                        </div>
-                        <div class="preco-card">
-                            <span style="color: #0E649A; font-weight: bold;">Oferta</span>
-                            <span style="font-weight: bold;">R$ 29,90</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="content">
-                    <img src="../../images/image 6.svg" alt="">
-                    <h3 class="titulo-card">A espada do verão</h3>
-                    <div class="inf-card">
-                        <div class="desconto-card">
-                            Até 70% off
-                        </div>
-                        <div class="preco-card">
-                            <span style="color: #0E649A; font-weight: bold;">Oferta</span>
-                            <span style="font-weight: bold;">R$ 29,90</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="content">
-                    <img src="../../images/image 10.svg" alt="">
-                    <h3 class="titulo-card">O Martelo de Thor</h3>
-                    <div class="inf-card">
-                        <div class="desconto-card">
-                            Até 70% off
-                        </div>
-                        <div class="preco-card">
-                            <span style="color: #0E649A; font-weight: bold;">Oferta</span>
-                            <span style="font-weight: bold;">R$ 29,90</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="content">
-                    <img src="../../images/image 11.svg" alt="">
-                    <h3 class="titulo-card">O Navio dos Mortos</h3>
-                    <div class="inf-card">
-                        <div class="desconto-card">
-                            Até 70% off
-                        </div>
-                        <div class="preco-card">
-                            <span style="color: #0E649A; font-weight: bold;">Oferta</span>
-                            <span style="font-weight: bold;">R$ 29,90</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="content">
-                    <img src="../../images/Rectangle 19.svg" alt="">
-                    <h3 class="titulo-card">Flores para Algernon</h3>
-                    <div class="inf-card">
-                        <div class="desconto-card">
-                            Até 70% off
-                        </div>
-                        <div class="preco-card">
-                            <span style="color: #0E649A; font-weight: bold;">Oferta</span>
-                            <span style="font-weight: bold;">R$ 29,90</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="content">
-                    <img src="../../images/Rectangle 20.svg" alt="">
-                    <h3 class="titulo-card">O Jardim Secreto</h3>
-                    <div class="inf-card">
-                        <div class="desconto-card">
-                            Até 70% off
-                        </div>
-                        <div class="preco-card">
-                            <span style="color: #0E649A; font-weight: bold;">Oferta</span>
-                            <span style="font-weight: bold;">R$ 29,90</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+            <% } %>
+    <% 
+        } else {
+            // Exibe uma mensagem caso não haja livros cadastrados
+    %>
+            </div> 
+		  </div>
+            <p>Não há livros cadastrados.</p>
+    <% 
+        }
+    } catch (SQLException e) {
+        // Exibe uma mensagem de erro caso ocorra uma exceção ao obter a lista de livros
+    %>
+        <p>Ocorreu um erro ao obter a lista de livros.</p>
+    <% 
+        }
+    %>
+            
     </section>
 </body>
 </html>
