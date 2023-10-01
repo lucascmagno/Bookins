@@ -1,0 +1,162 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+button{
+    cursor: pointer;
+}
+body{
+    background: #DFF6FF;
+    font-family: 'Lato', sans-serif;
+}
+.cabecalho{
+    background: linear-gradient(176deg, rgba(14,100,154,1) 0%, rgba(99,179,231,1) 100%);
+    color: white;
+    font-size: 24px;
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+}
+main{
+    background: #DFF6FF;
+    .content{
+        display: flex;
+    }
+    .section {
+        flex: 1;
+    }
+    .aside{
+        min-width: 250px;
+    }
+}
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+tr:first-child{
+    border-top: 1px solid #8DAEC3;
+}
+th{
+    text-align: left;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    color:#666;
+    font-weight: lighter;
+    float: left;
+}
+td{
+    padding: 20px 0;
+}
+img{
+    height: 350px;
+    width: 250px;
+    padding-right: 20px;
+}
+.produto{
+    display: flex;
+}
+.info{
+    margin: 0;
+    padding: 0;
+}
+.info2 div{
+    display: flex;
+    margin-bottom: 2px;
+    padding-top: 10px;
+    color: #555;
+}
+.info2:last-child{
+    border-bottom: 1px solid #ccc;
+}
+.nome{
+    font-size: 20px;
+    color: #027AC7;
+    padding-left: 10px;
+}
+.autor{
+    padding-left: 10px;
+}
+.azul{
+    color: #027AC7;
+}
+.tbody{
+    padding-top: 30px;
+}
+span{
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.avaliacao{
+    padding-left: 10px;
+}
+.sequencia{
+    padding-left: 5px;
+    padding-top: 10px;
+    font-size: 14px;
+}
+.boxInfo{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+}
+.box1{
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    height: 80px;
+    width: 200px;
+    background: white;
+}
+.box2{
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    height: 80px;
+    width: 200px;
+    background: white;
+}
+.box1 header{
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+.box2 header{
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+.box1 span{
+    color: #555;
+}
+.box2 span{
+    color: #555;
+}
+.box1 div{
+    text-align: center;
+    padding-top: 5px;
+}
+.box2 div{
+    text-align: center;
+    padding-top: 5px;
+}
+.botao{
+    padding-top: 20px;
+}
+.botao1 button{
+    width: 220px;
+    text-align: center;
+    height: 30px;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    background: yellow;
+    font-size: 15px;
+}
+.botao2{
+    padding-top: 10px;
+}
+.botao2 button{
+    width: 220px;
+    text-align: center;
+    height: 30px;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    background: orange;
+    font-size: 15px;
+}
