@@ -11,11 +11,19 @@ INSERT INTO venda(idLivro, idUsuario, quantidade) VALUES (1,1,1);
 
 
 select * from venda;
-
+#Lista todas as vendas
 SELECT v.idVenda as id, u.usuario, l.nomeLivro as livro, l.preco_livro as preco, v.quantidade
 FROM usuario u
 INNER JOIN Venda v ON u.idUsuario = v.idUsuario
 INNER JOIN Livro l ON v.idLivro = l.idLivro;
+
+#Lista todas as vendas de acordo com o usuario
+SELECT v.idVenda as id, u.usuario, l.nomeLivro as livro, l.preco_livro as preco, v.quantidade
+FROM usuario u
+INNER JOIN Venda v ON u.idUsuario = v.idUsuario
+INNER JOIN Livro l ON v.idLivro = l.idLivro
+WHERE u.usuario = 'luck'
+order by v.idVenda;
 
 
 Select * from usuario

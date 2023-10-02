@@ -13,6 +13,7 @@
     <style>
     a{
       text-decoration: none;
+      color: white;
     }
     </style>
 </head>
@@ -46,7 +47,7 @@
                 </div>
                 <hr style="height: 45px; margin: 10px 15px;">
                 <div class="lista">
-                    <p>Minhas compras</p>
+                    <p><a href="../vendas/minhasCompras.jsp">Minhas compras</a></p>
                     <p><a class="link" href="./dashboardestoque.jsp">Painel do Vendedor</a></p>
                 </div>
             </div>
