@@ -72,7 +72,7 @@
                                             <div class="botao1"><a href="./carrinho.jsp?id=<%=livro.getId()%>"><button>Adicionar ao Carrinho</button></a></div>
                                         </div>
                                         <div class="botaoAgora">
-                                            <div class="botao2"><button>Comprar Agora</button></div>
+                                            <div class="botao2"><a href="./carrinho.jsp?id=<%=livro.getId()%>"><button>Comprar Agora</button></a></div>
                                             </div>
                                     </div>
                                 </div>

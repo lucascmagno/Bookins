@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../css/carrinho.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <script async src="../../javascript/carrinho.js"></script>
+    <script async="true" src="../../javascript/carrinho.js"></script>
     <title>Carrinho de Compras</title>
 </head>
 <body>
@@ -124,7 +124,7 @@
     }
 
     function valorTotal(){
-        let valorTotal = 0;
+        var valorTotal = 0;
         const carroProdutos = document.getElementsByClassName("tr1");
         for(var i=0; i<carroProdutos.length; i++){
             console.log(carroProdutos[i]);
@@ -134,12 +134,12 @@
         }
         valorTotal = valorTotal.toFixed(2);
         valorTotal = valorTotal.replace(".", ",");
-        document.querySelector(".subtotal").innerText = "R$" + valorTotal;
+        document.querySelector(".subtotal").innerText = "R$ " + valorTotal;
         total();
     }
 
     function total(){
-        let total = 0; 
+        var total = 0; 
         const resumoValor = document.getElementsByClassName("info1"); 
         for(var i=0; i<resumoValor.length; i++){
             console.log(resumoValor[i]);
@@ -151,7 +151,7 @@
         total = Number(total);
         total = total.toFixed(2); 
         total = total.replace(".", ","); 
-        document.querySelector(".total").innerText = "R$" + total; 
+        document.querySelector(".total").innerText = "R$ " + total; 
     }
 
     </script>

@@ -92,7 +92,7 @@
             for (Livro livro : livros) {
             %>	<a href="../vendas/livroComprar.jsp?id=<%=livro.getId()%>">
                 <div class="content">
-                    <img src="../../images/imageDefault.svg" alt="">
+                    <img width="320" height="220" src="../../images/imageDefault.svg" alt="">
                     <h3 class="titulo-card"><%=livro.getTitulo() %></h3>
                     <div class="inf-card">
                         <div class="desconto-card">
