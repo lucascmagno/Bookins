@@ -90,7 +90,7 @@
             <% 
             // Itera sobre a lista de livros e exibe cada um deles na tabela
             for (Livro livro : livros) {
-            %>	<a href="../vendas/livroComprar.jsp?<%=livro.getId()%>">
+            %>	<a href="../vendas/livroComprar.jsp?id=<%=livro.getId()%>">
                 <div class="content">
                     <img src="../../images/imageDefault.svg" alt="">
                     <h3 class="titulo-card"><%=livro.getTitulo() %></h3>

@@ -14,6 +14,10 @@
     <title>Livro</title>
 </head>
 <body>
+    <header class="cabecalho">
+        <span>BOOK'INS</span>
+    </header>
+    <main>
 <%
     // Obter o ID do livro a ser editado a partir dos parâmetros da requisição
     int livroId = Integer.parseInt(request.getParameter("id"));
@@ -27,36 +31,12 @@
         
         if (livro != null) {
     %>
-    <form action="respostaUpdate.jsp" method="POST">
-        <div class="caixa">
-        <input name="id" type="hidden" value="<%= livro.getId() %>">
-            <p>Título </p> <input required type="text" name="titulo" id="titulo" value="<%= livro.getTitulo() %>"><br>
-            <p> Descrição </p> <textarea rows="5" cols="33" name="descricao" id="descricao"><%= livro.getDescricao() %></textarea><br>
-            <p> Preço </p> <input type="number" name="preco" min="0.00" id="preco" value="<%= livro.getPreco() %>"><br>
-        </div>
-        <div class="botao">
-        <input type="submit" value="Adicionar" id="botao">
-        </div>
-    </form>
-    <a href="../dashboard/dashboardestoque.jsp" id="voltar">Voltar</a>
-    <% } else { %>
-    <p>O livro não foi encontrado.</p>
-    <% } %>
-    <% } catch (SQLException e) { %>
-    <p>Ocorreu um erro ao obter os dados do livro: <%= e.getMessage() %></p>
-    <% } %>
-
-
-    <header class="cabecalho">
-        <span>BOOK'INS</span>
-    </header>
-    <main>
-        <div class="content">
+    <div class="content">
             <section class="section">
                 <table>
                     <thead>
                         <tr>
-                            <th>Livros <i class='bx bx-chevron-right'></i></th>
+                            <th><a href="../dashboard/dashboardvendas.jsp">Livros </a><i class='bx bx-chevron-right'></i></th>
                             <th>Literatura e Ficção <i class='bx bx-chevron-right'></i></th>
                             <th>Literatura Mundial</th>
                         </tr>
@@ -65,31 +45,31 @@
                         <tr class="corpo">
                             <td class="tbody">
                                 <div class="produto">
-                                    <img src="imagens/pjo.jpg" alt="">
+                                    <img src="../../images/imageDefault.svg" alt="">
                                     <div class="info">
                                         <div class="info2">
-                                            <div class="nome">A Maldição do Titã - Percy Jackson e os Olimpianos 3</div>
+                                            <div class="nome"><%=livro.getTitulo() %></div>
                                             <div class="avaliacao">4,9<span><i class='bx bxs-star' style='color:#e4fd30'></i><i class='bx bxs-star' style='color:#e4fd30'></i><i class='bx bxs-star' style='color:#e4fd30'></i><i class='bx bxs-star' style='color:#e4fd30'></i><i class='bx bxs-star' style='color:#e4fd30'></i><i class='bx bx-chevron-down' undefined ></i></span><span class="azul">3.435 avaliações de clientes</span></div>
-                                            <div class="autor">por<span class="azul">Rick Riordan</span>(Autor),<span class="azul"> Raquel Zampil</span>(Tradutor)</div>
-                                            <div class="sequencia"> <span class="azul">Livro 3 de 5: Percy Jackson e os Olimpianos</span></div>
+                                            <div class="autor">por<span class="azul">--------</span>(Autor),<span class="azul">--------</span>(Tradutor)</div>
+                                            <div class="sequencia"> <span class="azul">Livro x de y: <%=livro.getTitulo() %></span></div>
                                             <div class="resumo"></div>
                                         </div>
                                         <div class="boxInfo">
                                             <div class="box1">
                                                 <div> 
                                                 <header>Kindle</header>
-                                                <span>R$35,00</span>
+                                                <span id="kindle">R$35,00</span>
                                                 </div>
                                             </div>
                                             <div class="box2">
                                                 <div>
                                                 <header>Capa Comum</header>
-                                                <span>R$ 44,99</span>
+                                                <span>R$ <%=livro.getPreco() %></span>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="botao">
-                                            <div class="botao1"><button>Adicionar ao Carrinho</button></div>
+                                            <div class="botao1"><a href="./carrinho.jsp?id=<%=livro.getId()%>"><button>Adicionar ao Carrinho</button></a></div>
                                         </div>
                                         <div class="botaoAgora">
                                             <div class="botao2"><button>Comprar Agora</button></div>
@@ -102,6 +82,13 @@
                 </table>
             </section>
         </div>
+    <% } else { %>
+    <p>O livro não foi encontrado.</p>
+    <% } %>
+    <% } catch (SQLException e) { %>
+    <p>Ocorreu um erro ao obter os dados do livro: <%= e.getMessage() %></p>
+    <% } %>
+        
     </main>
 </body>
 </html>
