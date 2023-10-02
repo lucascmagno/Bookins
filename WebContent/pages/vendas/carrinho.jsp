@@ -1,3 +1,8 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
+<%@page import="Bookins.dao.SelectDao"%>
+<%@page import="Bookins.model.Livro"%>
+<%@page import="java.util.List"%>
+<%@page import="java.sql.SQLException"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,6 +17,19 @@
     <header class="cabecalho">
         <span>Carrinho de Compras</span>
     </header>
+    <%
+    // Obter o ID do livro a ser editado a partir dos parâmetros da requisição
+    int livroId = Integer.parseInt(request.getParameter("id"));
+    
+    // Criar uma instância do DAO
+    SelectDao selectDao = new SelectDao();
+    
+    try {
+        // Obter o livro com base no ID fornecido
+        Livro livro = selectDao.getLivroById(livroId);
+        
+        if (livro != null) {
+    %>
     <form>
         <main>
             <div class="page_title" >
@@ -36,8 +54,8 @@
                                     <div class="product">
                                         <img src="imagens/pjo.jpg" alt="">
                                         <div class="info">
-                                            <div class="name">Nome do produto</div>
-                                            <div class="categoria">Edição de 2014</div>
+                                            <div class="name"><%=livro.getTitulo() %></div>
+                                            <div class="categoria">Edição de ----</div>
                                             <div class="estoque">Em estoque</div>
                                         </div>
                                     </div>
@@ -47,7 +65,7 @@
                                             <input type="number" name="qtde" min="1">
                                     </div>
                                 </td>
-                                <td class="preco">R$ 120</td>
+                                <td class="preco">R$ <%=livro.getPreco() %></td>
                                 <td class="subtotal">R$ 120</td>
                                 <td>
                                     <button class="remover"><i class='bx bx-x'></i></button>
@@ -69,10 +87,16 @@
                             <span> R$ 418</span>
                         </footer>
                     </div>
-                    <button class="finalizar">Finalizar Compra <i class='bx bx-check'></i></button>
+                    	<button class="finalizar"><a href="./respostaVenda.jsp?id=<%= livro.getId()%>">Finalizar Compra </a><i class='bx bx-check'></i></button>
                 </aside>
             </div>
         </main>
     </form>
+    <% } else { %>
+    <p>O livro não foi encontrado.</p>
+    <% } %>
+    <% } catch (SQLException e) { %>
+    <p>Ocorreu um erro ao obter os dados do livro: <%= e.getMessage() %></p>
+    <% } %>
 </body>
 </html>
