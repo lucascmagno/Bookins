@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../css/carrinho.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <script async src="js/index.js"></script>
+    <script async src="../../javascript/carrinho.js"></script>
     <title>Carrinho de Compras</title>
 </head>
 <body>
@@ -30,7 +30,7 @@
         
         if (livro != null) {
     %>
-    <form>
+    <form action="respostaVenda.jsp" method="get">
         <main>
             <div class="page_title" >
                 <i class='bx bx-cart-alt'></i>
@@ -44,7 +44,6 @@
                                 <th>Descrição</th>
                                 <th>Qtd</th>
                                 <th>Preço</th>
-                                <th>Subtotal</th>
                                 <th>remover</th>
                             </tr>
                         </thead>
@@ -52,7 +51,7 @@
                             <tr class="tr1">
                                 <td class="tbody">
                                     <div class="product">
-                                        <img src="imagens/pjo.jpg" alt="">
+                                        <img src="../../images/imageDefault.svg" alt="">
                                         <div class="info">
                                             <div class="name"><%=livro.getTitulo() %></div>
                                             <div class="categoria">Edição de ----</div>
@@ -62,11 +61,11 @@
                                 </td>
                                 <td>
                                     <div class="qty">
-                                            <input type="number" name="qtde" min="1">
+                                    		<input class="quantidade" value="<%=livro.getId() %>" type="hidden" name="idLivro">
+                                            <input class="quantidade" value="1" type="number" name="quantidade" min="1">
                                     </div>
                                 </td>
                                 <td class="preco">R$ <%=livro.getPreco() %></td>
-                                <td class="subtotal">R$ 120</td>
                                 <td>
                                     <button class="remover"><i class='bx bx-x'></i></button>
                                 </td>
@@ -74,20 +73,20 @@
                         </tbody>
                     </table>
                 </section>
-                <aside>
+                <aside class="aside">
                     <div class="box">
                         <header>Resumo da Compra</header>
-                        <div class="info">
-                            <div><span>Subtotal</span><span> R$ 180</span></div>
-                            <div><span>Frete</span><span> Gratuito</span></div>
-                            <div><button>Adicionar cupom de desconto <i class='bx bx-right-arrow-alt'></i></button></div>
+                        <div class="info1">
+                                <div><span>Subtotal</span><span class="subtotal"> R$ 0</span></div>
+                                <div><span>Frete</span><span class="frete" value=""> R$ 0</span></div>
+                                <div><button>Adicionar cupom de desconto <i class='bx bx-right-arrow-alt'></i></button></div>
                         </div>
                         <footer>
                             <span>Total</span>
-                            <span> R$ 418</span>
+                            <span class="total"> R$ 0</span>
                         </footer>
                     </div>
-                    	<button class="finalizar"><a href="./respostaVenda.jsp?id=<%= livro.getId()%>">Finalizar Compra </a><i class='bx bx-check'></i></button>
+                    <button class="finalizar">Finalizar Compra <i class='bx bx-check'></i></button>
                 </aside>
             </div>
         </main>
@@ -98,5 +97,62 @@
     <% } catch (SQLException e) { %>
     <p>Ocorreu um erro ao obter os dados do livro: <%= e.getMessage() %></p>
     <% } %>
+    <script type="text/javascript">
+    if (document.readyState == "loading"){
+        document.addEventListener("DOMContentLoaded", ready);
+    } else {
+        ready();
+    }
+
+    function ready(){
+        const removerProdutos= document.getElementsByClassName("remover") ;
+        console.log(removerProdutos);
+        for (var i=0; i<removerProdutos.length; i++){
+            removerProdutos[i].addEventListener("click", removerProduto);
+        }
+        
+        const quantidadeInput = document.getElementsByClassName("tr1");
+        for (var i=0; i<quantidadeInput.length; i++){
+            quantidadeInput[i].addEventListener("change", valorTotal);
+        }
+    }
+
+    function removerProduto(event){
+        event.target.parentElement.parentElement.parentElement.parentElement.parentElement.remove();
+        valorTotal();
+    }
+
+    function valorTotal(){
+        let valorTotal = 0;
+        const carroProdutos = document.getElementsByClassName("tr1");
+        for(var i=0; i<carroProdutos.length; i++){
+            console.log(carroProdutos[i]);
+            const produtoPreco = carroProdutos[i].getElementsByClassName("preco")[0].innerText.replace("R$", "").replace(",", ".");
+            const produtoQuantidade = carroProdutos[i].getElementsByClassName("quantidade")[0].value;
+            valorTotal += produtoPreco * produtoQuantidade;
+        }
+        valorTotal = valorTotal.toFixed(2);
+        valorTotal = valorTotal.replace(".", ",");
+        document.querySelector(".subtotal").innerText = "R$" + valorTotal;
+        total();
+    }
+
+    function total(){
+        let total = 0; 
+        const resumoValor = document.getElementsByClassName("info1"); 
+        for(var i=0; i<resumoValor.length; i++){
+            console.log(resumoValor[i]);
+            const carroSubtotal = resumoValor[i].getElementsByClassName("subtotal")[0].innerText.replace("R$", "").replace(",", "."); 
+            const produtoFrete = resumoValor[i].getElementsByClassName("frete")[0].innerText.replace("R$", "").replace(",", ".");
+            total += carroSubtotal + produtoFrete; 
+        }
+        console.log(typeof total); 
+        total = Number(total);
+        total = total.toFixed(2); 
+        total = total.replace(".", ","); 
+        document.querySelector(".total").innerText = "R$" + total; 
+    }
+
+    </script>
 </body>
 </html>

@@ -5,6 +5,8 @@ public class Venda {
     private String usuario;
     private String nomeLivro;
     private double precoLivro;
+    private int idLivro;
+    private int idUsuario;
     private double quantidade;
 
     // Construtores, getters e setters
@@ -52,8 +54,22 @@ public class Venda {
     public void setPrecoLivro(double precoLivro) {
         this.precoLivro = precoLivro;
     }
+    
+	public int getIdLivro() {
+		return idLivro;
+	}
+	public void setIdLivro(int idLivro) {
+		this.idLivro = idLivro;
+	}
 	public double getQuantidade() {
 		return quantidade;
+	}
+	
+	public int getIdUsuario() {
+		return idUsuario;
+	}
+	public void setIdUsuario(int idUsuario) {
+		this.idUsuario = idUsuario;
 	}
 	public void setQuantidade(double quantidade) {
 		this.quantidade = quantidade;

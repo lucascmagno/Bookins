@@ -46,7 +46,7 @@
                 </div>
                 <hr style="height: 45px; margin: 10px 15px;">
                 <div class="lista">
-                    <p>Minha lista</p>
+                    <p>Minhas compras</p>
                     <p><a class="link" href="./dashboardestoque.jsp">Painel do Vendedor</a></p>
                 </div>
             </div>

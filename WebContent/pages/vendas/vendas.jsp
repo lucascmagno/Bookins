@@ -41,7 +41,6 @@
                         <th>Livro</th>
                         <th>Preço</th>
                         <th>Quantidade</th>
-                        <th>Editar</th>
                         <th>Deletar</th>
                     </tr>
                 </thead>
@@ -56,8 +55,7 @@
                             <td><%= vendas.getNomeLivro() %></td>
                             <td><%= vendas.getPrecoLivro()%></td>
                             <td><%= vendas.getQuantidade()%></td>
-                           	<td><a href="../livro/update_livro.jsp?id=<%= vendas.getIdVenda() %>"><img alt="edit" src="../../images/edit.svg"></a></td>
-                            <td><a href="../livro/delete_livro.jsp?id=<%= vendas.getIdVenda() %>"><img alt="delete" src="../../images/delete.svg"></a></td>
+                           	<td><a href="../livro/delete_livro.jsp?id=<%= vendas.getIdVenda() %>"><img alt="delete" src="../../images/delete.svg"></a></td>
                         </tr>
                     <% } %>
                 </tbody>
