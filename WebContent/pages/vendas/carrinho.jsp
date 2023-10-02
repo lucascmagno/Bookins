@@ -77,13 +77,13 @@
                     <div class="box">
                         <header>Resumo da Compra</header>
                         <div class="info1">
-                                <div><span>Subtotal</span><span class="subtotal"> R$ 0</span></div>
+                                <div><span>Subtotal</span><span class="subtotal"> R$ <%=livro.getPreco() %></span></div>
                                 <div><span>Frete</span><span class="frete" value=""> R$ 0</span></div>
                                 <div><button>Adicionar cupom de desconto <i class='bx bx-right-arrow-alt'></i></button></div>
                         </div>
                         <footer>
                             <span>Total</span>
-                            <span class="total"> R$ 0</span>
+                            <span class="total"> R$ <%=livro.getPreco() %></span>
                         </footer>
                     </div>
                     <button class="finalizar">Finalizar Compra <i class='bx bx-check'></i></button>
@@ -97,6 +97,7 @@
     <% } catch (SQLException e) { %>
     <p>Ocorreu um erro ao obter os dados do livro: <%= e.getMessage() %></p>
     <% } %>
+    
     <script type="text/javascript">
     if (document.readyState == "loading"){
         document.addEventListener("DOMContentLoaded", ready);
