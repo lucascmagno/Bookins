@@ -10,7 +10,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../css/carrinho.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <script async="true" src="../../javascript/carrinho.js"></script>
     <title>Carrinho de Compras</title>
 </head>
 <body>
@@ -105,54 +104,73 @@
         ready();
     }
 
-    function ready(){
-        const removerProdutos= document.getElementsByClassName("remover") ;
+    function ready() {
+        const removerProdutos = document.getElementsByClassName("remover");
         console.log(removerProdutos);
-        for (var i=0; i<removerProdutos.length; i++){
+        for (var i = 0; i < removerProdutos.length; i++) {
             removerProdutos[i].addEventListener("click", removerProduto);
         }
-        
-        const quantidadeInput = document.getElementsByClassName("tr1");
-        for (var i=0; i<quantidadeInput.length; i++){
-            quantidadeInput[i].addEventListener("change", valorTotal);
+
+        const quantidadeInput = document.getElementsByClassName("quantidade");
+        for (var i = 0; i < quantidadeInput.length; i++) {
+            quantidadeInput[i].addEventListener("change", valorTotal); // Adicione um ouvinte para a mudança no valor do campo de quantidade.
         }
     }
+
 
     function removerProduto(event){
         event.target.parentElement.parentElement.parentElement.parentElement.parentElement.remove();
         valorTotal();
     }
 
-    function valorTotal(){
+    function valorTotal() {
         var valorTotal = 0;
+
         const carroProdutos = document.getElementsByClassName("tr1");
-        for(var i=0; i<carroProdutos.length; i++){
-            console.log(carroProdutos[i]);
-            const produtoPreco = carroProdutos[i].getElementsByClassName("preco")[0].innerText.replace("R$", "").replace(",", ".");
+        for (var i = 0; i < carroProdutos.length; i++) {
+            const produtoPrecoStr = carroProdutos[i].getElementsByClassName("preco")[0].innerText.replace("R$", "").replace(",", ".");
             const produtoQuantidade = carroProdutos[i].getElementsByClassName("quantidade")[0].value;
-            valorTotal += produtoPreco * produtoQuantidade;
+            
+            // Converter a string do preço do produto em um número
+            const produtoPreco = parseFloat(produtoPrecoStr);
+            
+            // Calcular o subtotal para o produto atual
+            const subtotalProduto = produtoPreco * produtoQuantidade;
+            
+            valorTotal += subtotalProduto;
         }
-        valorTotal = valorTotal.toFixed(2);
-        valorTotal = valorTotal.replace(".", ",");
+
+        // Formatar o valor total como uma string com duas casas decimais
+        valorTotal = valorTotal.toFixed(2).replace(".", ",");
+        
         document.querySelector(".subtotal").innerText = "R$ " + valorTotal;
+        
+        // Atualizar o total geral
         total();
     }
+
 
     function total(){
         var total = 0; 
         const resumoValor = document.getElementsByClassName("info1"); 
         for(var i=0; i<resumoValor.length; i++){
             console.log(resumoValor[i]);
-            const carroSubtotal = resumoValor[i].getElementsByClassName("subtotal")[0].innerText.replace("R$", "").replace(",", "."); 
-            const produtoFrete = resumoValor[i].getElementsByClassName("frete")[0].innerText.replace("R$", "").replace(",", ".");
+            const carroSubtotalStr = resumoValor[i].getElementsByClassName("subtotal")[0].innerText.replace("R$", "").replace(",", "."); 
+            const produtoFreteStr = resumoValor[i].getElementsByClassName("frete")[0].innerText.replace("R$", "").replace(",", ".");
+            
+            // Converter as strings em números
+            const carroSubtotal = parseFloat(carroSubtotalStr);
+            const produtoFrete = parseFloat(produtoFreteStr);
+            
             total += carroSubtotal + produtoFrete; 
         }
-        console.log(typeof total); 
-        total = Number(total);
-        total = total.toFixed(2); 
-        total = total.replace(".", ","); 
-        document.querySelector(".total").innerText = "R$ " + total; 
+        
+        // Formatar o total como uma string com duas casas decimais
+        const totalFormatado = total.toFixed(2).replace(".", ",");
+        
+        document.querySelector(".total").innerText = "R$ " + totalFormatado; 
     }
+
 
     </script>
 </body>
