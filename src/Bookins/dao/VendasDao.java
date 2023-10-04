@@ -77,4 +77,15 @@ public class VendasDao {
 	        }
 	    }
 	}
+	public boolean deleteVenda(Venda v) {
+		Conexao con = null;
+		
+		try {
+			con = new Conexao();
+			con.executeUpdate("DELETE FROM venda WHERE idVenda="+v.getIdVenda());
+			return true;
+		}catch(SQLException e){
+			return false;
+		}
+	}
 }

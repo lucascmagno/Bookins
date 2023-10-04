@@ -55,7 +55,7 @@
                             <td><%= vendas.getNomeLivro() %></td>
                             <td><%= vendas.getPrecoLivro()%></td>
                             <td><%= vendas.getQuantidade()%></td>
-                           	<td><a href="../livro/delete_livro.jsp?id=<%= vendas.getIdVenda() %>"><img alt="delete" src="../../images/delete.svg"></a></td>
+                           	<td><a href="./deleteVenda.jsp?id=<%= vendas.getIdVenda() %>"><img alt="delete" src="../../images/delete.svg"></a></td>
                         </tr>
                     <% } %>
                 </tbody>
